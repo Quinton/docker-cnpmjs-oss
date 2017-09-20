@@ -1,7 +1,9 @@
 'use strict';
 
+const version = require('../package.json').version;
+
 module.exports = {
-  version: process.env.CNPMJS_ORG_VERSION,
+  version: process.env.CNPMJS_ORG_VERSION || version,
   dataDir: process.env.CNPMJS_ORG_DATA_DIR,
   /*
    * server configure
@@ -35,18 +37,18 @@ module.exports = {
 
   database: {
     db: process.env.CNPMJS_ORG_DB || 'cnpmjs_test',
-    username: process.env.CNPMJS_ORG_DB || 'root',
-    password: process.env.CNPMJS_ORG_DB || '',
+    username: process.env.CNPMJS_ORG_DB_USER_NAME || 'root',
+    password: process.env.CNPMJS_ORG_DB_PASSWORD || '',
 
     // the sql dialect of the database
     // - currently supported: 'mysql', 'sqlite', 'postgres', 'mariadb'
-    dialect: process.env.CNPMJS_ORG_DIALECT || 'mysql',
+    dialect: process.env.CNPMJS_ORG_DB_DIALECT || 'mysql',
 
     // custom host; default: 127.0.0.1
-    host: process.env.CNPMJS_ORG_HOST || '127.0.0.1',
+    host: process.env.CNPMJS_ORG_DB_HOST || '127.0.0.1',
 
     // custom port; default: 3306
-    port: process.env.CNPMJS_ORG_PORT || 3306,
+    port: process.env.CNPMJS_ORG_DB_PORT || 3306,
 
     // use pooling in order to reduce db connection overload and to increase speed
     // currently only for mysql and postgresql (since v1.5.0)
@@ -66,7 +68,7 @@ module.exports = {
     // change to your endpoint
     endpoint: process.env.CNPMJS_ORG_OSS_ENDPOINT || 'oss-cn-shenzhen.aliyuncs.com',
     bucket: process.env.CNPMJS_ORG_OSS_BUCKET || 'your bucket',
-    mode: process.env.CNPMJS_ORG_OSS_MODE || 'public or private',
+    mode: process.env.CNPMJS_ORG_OSS_MODE || 'private',
   }),
 
   // registry url name

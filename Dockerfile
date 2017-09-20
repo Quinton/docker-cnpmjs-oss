@@ -1,13 +1,11 @@
-FROM node:4-slim
-MAINTAINER Firef0x <Firefgx {aT} gmail.com>
+FROM alpine:3.6
 
 # Working enviroment
 ENV CNPMJS_ORG_USER="www-data" \
     CNPMJS_ORG_INSTALL_DIR="/var/app/cnpmjs.org" \
     CNPMJS_ORG_CONFIG_FILE="${CNPMJS_ORG_INSTALL_DIR}/config/config.js" \
     CNPMJS_ORG_DATA_DIR="/var/www" \
-    CNPMJS_ORG_DOCS_DIR="${CNPMJS_ORG_INSTALL_DIR}/docs/web" \
-    CNPMJS_ORG_VERSION=2.19.2
+    CNPMJS_ORG_DOCS_DIR="${CNPMJS_ORG_INSTALL_DIR}/docs/web"
 
 RUN \
     mkdir -p /var/app && \
