@@ -28,7 +28,7 @@ RUN npm install oss-cnpm && \
     npm install
 
 VOLUME ["${CNPMJS_ORG_CONFIG_FILE}", "${CNPMJS_ORG_DOCS_DIR}", "${CNPMJS_ORG_DATA_DIR}"]
-EXPOSE 7001/tcp 7002/tcp
+EXPOSE 7001:7001 7002:7002
 
 # Entrypoint
 CMD ["/usr/local/bin/node", "/var/app/cnpmjs.org/dispatch.js"]
