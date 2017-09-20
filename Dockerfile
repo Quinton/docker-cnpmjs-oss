@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM node:4-slim
 
 # Working enviroment
 ENV CNPMJS_ORG_USER="www-data" \
