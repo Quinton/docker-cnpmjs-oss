@@ -23,6 +23,8 @@ RUN \
 
 WORKDIR ${CNPMJS_ORG_INSTALL_DIR}
 
+COPY ./config.js ${CNPMJS_ORG_INSTALL_DIR}/config
+
 RUN npm install oss-cnpm && \
     npm install
 
